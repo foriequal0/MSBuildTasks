@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latestmajor</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Label="nuspec">
+        <IsPackable>true</IsPackable>
+        <Version>0.0.1</Version>
+        <Title>ResolveUsingTaskAssembly</Title>
+        <Authors>SeongChan Lee</Authors>
+        <Description>Custom UsingTask AssemblyName resolver</Description>
+        <PackageTags>MSBuild</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.14.28">
+          <PrivateAssets>all</PrivateAssets>
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.Build.Framework" Version="17.14.28">
+          <PrivateAssets>all</PrivateAssets>
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+      <PackageReference Include="NuGet.Protocol" Version="6.14.0">
+          <PrivateAssets>all</PrivateAssets>
+          <ExcludeAssets>runtime</ExcludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="NuGetLocalPackage.Tests" />
+    </ItemGroup>
+
+    <ItemGroup Label="Packaged files">
+        <None Remove="build\*" Pack="true" PackagePath="build\" />
+        <None Remove="build\*" Pack="true" PackagePath="build\" />
+    </ItemGroup>
+
+    <Import Project="..\build\NuGetConventions.targets" />
+</Project>

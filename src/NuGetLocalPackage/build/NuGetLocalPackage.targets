@@ -1,0 +1,9 @@
+﻿<Project>
+    <PropertyGroup>
+        <NuGetLocalPackage_TFM Condition=" '$(MSBuildRuntimeType)' == 'Core' ">netstandard2.0</NuGetLocalPackage_TFM>
+    </PropertyGroup>
+
+    <UsingTask
+        TaskName="InstallLocalPackage"
+        AssemblyFile="$(MSBuildThisFileDirectory)..\tasks\$(NuGetLocalPackage_TFM)\$(MSBuildThisFileName).dll"/>
+</Project>
